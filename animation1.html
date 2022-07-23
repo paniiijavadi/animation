@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        main{
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(to right,rgb(29, 38, 38),rgb(29, 38, 48),rgb(29, 38, 58));
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        main>div{
+            width: 8%;
+        }
+        .squares,.loops{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .squares>div{
+            width: 150px;
+            height: 150px;
+            position: absolute;
+        }
+        .squares>div:first-child{
+            border: 5px solid rgb(63, 249, 220);
+            transform: rotate(60deg);
+            animation: square 2s ease-in-out infinite alternate forwards;
+
+        }
+        .squares>div:last-child{
+            border: 5px solid rgb(251, 91, 83);
+            transform: rotate(-60deg);
+            animation: square 2s ease-in-out infinite alternate-reverse forwards;
+
+
+        }
+        @keyframes square{
+            to {transform:rotate(180deg)
+            }
+        }
+        .loops{
+            transform-style: preserve-3d;
+        }
+        .loops>div{
+           border-radius: 50%;
+           position: absolute;
+        }
+        .loops>div:nth-of-type(1){
+           width:250px ;
+           height:250px ;
+           border: 3px solid white;
+         animation: innerloops 4s linear infinite alternate ;
+
+        }
+        .loops>div:nth-of-type(2){
+           width:200px ;
+           height:200px ;
+           border: 3px solid rgb(63, 249, 220);
+         animation: innerloops 6s linear infinite reverse ;
+
+        }
+        .loops>div:nth-of-type(3){
+           width:150px ;
+           height:150px ;
+           border: 3px solid rgb(251, 91, 83);
+         animation: innerloops 10s linear infinite alternate ;
+
+        }
+        .loops>div:nth-of-type(4){
+           width:125px ;
+           height:125px ;
+           border: 3px solid white;
+
+        }
+        .loops>div:nth-of-type(5),.loops>div:nth-of-type(6){
+           width:115px ;
+           height:115px ;
+           border: 3px solid white;
+
+        }
+        .loops>div:nth-of-type(5){
+         animation: innerloops 12s linear infinite alternate ;
+        }
+        .loops>div:nth-of-type(6){
+            animation: innerloops 12s linear infinite alternate-reverse ;
+        }
+        @keyframes innerloops{
+            to{
+                transform: rotate3d(1,1,1,360deg);
+            }
+        }
+        .heart{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+
+        }
+
+        .heart>div{
+            margin: 3px;
+            border-radius: 4px;
+            width: 6px;
+            height: 8px;
+        }
+        .heart>div:nth-of-type(1){
+            background-color: crimson;
+
+            animation: heart1 4s .2s infinite alternate;
+        }
+
+        .heart>div:nth-of-type(2){
+            background-color: rgb(188, 33, 33);
+            animation: heart2 4s  .4s infinite alternate;
+        }
+        .heart>div:nth-of-type(3){
+            background-color: goldenrod;
+            animation: heart3 4s  .6s infinite alternate;
+            
+        }
+        .heart>div:nth-of-type(4){
+            background-color: rgb(14, 148, 14);
+            animation: heart4 4s  .8s infinite alternate;
+        }
+        .heart>div:nth-of-type(5){
+            background-color: darkcyan;
+            animation: heart5 4s  1s infinite alternate;
+
+        }
+        .heart>div:nth-of-type(6){
+            background-color: rgb(111, 20, 139);
+            animation: heart4 4s  1.2s infinite alternate;
+
+        }
+        .heart>div:nth-of-type(7){
+            background-color: crimson;
+            animation: heart3 4s  1.4s infinite alternate;
+        }
+        .heart>div:nth-of-type(8){
+            background-color: rgb(188, 33, 33);
+            
+            animation: heart2 4s  1.6s infinite alternate;
+        }
+        .heart>div:nth-of-type(9){
+            background-color: goldenrod;
+            animation: heart1 4s  1.8s infinite alternate;
+        }
+        @keyframes heart1{
+            0%, 50%{
+                height: 8px;
+            }
+            20%, 48%, 55%, 100%{
+                height: 20px;
+            }
+        }
+        @keyframes heart2{
+            0%, 50%{
+                height: 8px;
+            }
+            20%, 48%, 55%, 100%{
+                height: 40px;
+            }
+        }
+        @keyframes heart3{
+            0%, 50%{
+                height: 8px;
+            }
+            20%, 48%, 55%, 100%{
+                height: 60px;
+            transform: translateY(5px);
+
+            }
+        }
+        @keyframes heart4{
+            0%, 50%{
+                height: 8px;
+            }
+            20%, 48%, 55%, 100%{
+                height: 65px;
+            transform: translateY(10px);
+
+            }
+        }
+        @keyframes heart5{
+            0%, 50%{
+                height: 8px;
+            }
+            20%, 48%, 55%, 100%{
+                height: 70px;
+            transform: translateY(18px);
+
+            }
+        }
+        .loader>div{
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            position: relative;
+            
+        }
+        .loader>div:nth-of-type(1){
+            border: 1px solid rgb(251, 91, 83);
+            transform: translate(25%,150%);
+            box-shadow: 0px 20px 10px -15px rgb(251, 91, 83);
+            border-top-color: transparent;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            animation: loader2 2s linear infinite;
+            
+        }
+        .loader>div:nth-of-type(2){
+            position: relative;
+            border: 1px solid cyan;
+            box-shadow: 20px 0px 10px -15px cyan;
+            border-top-color: transparent;
+            border-left-color: transparent;
+            border-bottom-color: transparent;
+            transform: translateY(25%);
+            animation: loader1 2s linear infinite ;
+        }
+        
+        .loader>div:nth-of-type(3){
+            border: 1px solid white;
+            transform: translate(-25%,-50%);
+            box-shadow: 0px -20px 10px -15px white;
+            border-left-color: transparent;
+            border-bottom-color: transparent;
+            border-right-color: transparent;
+            animation: loader3 2s linear infinite;
+        }
+
+        @keyframes loader1{
+            to{
+                transform:translateY(25%) rotate(360deg);
+            }
+        }
+        @keyframes loader2{
+            to{
+                transform: translate(25%,150%) rotate(360deg);
+            }
+        }
+        @keyframes loader3{
+            to{
+                transform: translate(-25%,-50%) rotate(360deg);
+            }
+        }
+        .clock,.loader1{
+            width: 125px;
+            height: 125px;
+            border: 4px solid white;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .clock>div:first-child,.clock>div:last-child{
+            line-height: 150px;
+            border-top: 4px  solid rgb(255, 255, 255);
+            position: absolute;
+            border-radius: 2px;
+            top: 50%;
+            
+
+        }
+        .clock>div:first-child{
+            width: 56px;
+            left: calc(50% - 56px);
+            transform-origin: top right;
+            animation: clock 8s linear   infinite ;
+        }
+        .clock>div:last-child{
+            width: 44px;
+            left: 50%;
+            transform-origin: top left;
+            animation: clock 12s linear  infinite ;
+
+        }
+        @keyframes clock{
+            0%{ 
+            transform:  rotate(0deg);
+
+            }
+            100%{
+                transform:  rotate(360deg)
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <main>
+        <div class="squares">
+            <div></div>
+            <div></div>
+        </div>
+        <div class="loops">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="heart">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="loader">
+            <div>
+            </div>
+            <div>
+            </div>
+            <div>
+            </div>
+        </div>
+        <div>
+            <div class="clock">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
